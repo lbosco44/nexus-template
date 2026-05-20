@@ -35,11 +35,11 @@ NON cambiare lo stack senza autorizzazione esplicita.
 
 ---
 
-# WORKFLOW OBBLIGATORIO — Brief Pack v2
+# WORKFLOW OBBLIGATORIO — Brief Pack v3.0
 
 **Prima di scrivere QUALSIASI codice**, leggi tutti i file in `Brief/` nell'ordine:
 
-1. `Brief/DESIGN.md` → concept estetico + palette esatta + font esatti + archetipo animazione + banlist specifica del progetto
+1. `Brief/DESIGN.md` → concept estetico + scelte concrete approvate (palette hex, font, energia CTA, ecc)
 2. `Brief/SITEMAP.md` → struttura pagine, URL, priorità SEO
 3. `Brief/WIREFRAME.md` → ordine sezioni testuale per ogni pagina
 4. `Brief/COPY.md` → TUTTI i testi italiani definitivi (NON inventare copy)
@@ -47,7 +47,33 @@ NON cambiare lo stack senza autorizzazione esplicita.
 
 Se manca un file → **fermati e chiedi**. Non improvvisare contenuto.
 
+## ⚠️ STEP OBBLIGATORIO PRE-CODICE — Intermezzo Design
+
+Quando ricevi un nuovo progetto Nexus appena clonato dal template:
+
+1. **Leggi `Brief/DESIGN.md`**
+2. **Verifica se la sezione "Scelte concrete approvate" è COMPILATA**
+   - Se la sezione contiene palette hex specifici, font specifici, componenti suggeriti → puoi procedere allo step 3
+   - Se la sezione è **vuota o ha placeholder** → **FERMATI**. Devi prima eseguire l'**Intermezzo Design**.
+3. **Intermezzo Design** si attiva con lo slash command custom:
+
+   ```
+   /nexus-design
+   ```
+
+   Questo comando:
+   - Legge `Brief/DESIGN.md` astratto
+   - Consulta il database `ui-ux-pro-max` (161 palette ranked, 57 font pairings, 99 UX rules)
+   - Propone all'utente 3 opzioni concrete per palette, tipografia, energia CTA, macro-layout
+   - Raccoglie le scelte
+   - Aggiorna `Brief/DESIGN.md` riempiendo la sezione "Scelte concrete approvate"
+4. Solo dopo che la sezione "Scelte concrete approvate" è compilata e approvata, puoi procedere a scrivere il codice del sito.
+
+**MAI scrivere codice se `Brief/DESIGN.md` ha la sezione "Scelte concrete approvate" vuota. Sempre eseguire `/nexus-design` prima.**
+
 **Regola d'oro copy**: il copy del sito vive nel `Brief/COPY.md`. NON inventare testi. Se serve un copy non presente, fermati e chiedi all'utente. Sono ammesse SOLO micro-modifiche per adattare lunghezza al layout (es. tagliare "Servizio professionale di X" → "X" per un menu).
+
+**Regola d'oro design**: la palette, i font, l'energia CTA, il macro-layout vivono nelle "Scelte concrete approvate" del `Brief/DESIGN.md` (popolate da `/nexus-design`). NON cambiarle mentre costruisci il sito. Se durante la build emergono limiti tecnici (es. il font scelto non ha il peso 600), torna a `/nexus-design` per scelta alternativa approvata, non improvvisare.
 
 ---
 
@@ -161,4 +187,4 @@ git push                    # Vercel preview auto-deploy via GitHub integration
 
 ---
 
-*Template Nexus v1 — Ultimo aggiornamento: 20 maggio 2026*
+*Template Nexus v3.0 — Ultimo aggiornamento: 20 maggio 2026 (intermezzo /nexus-design obbligatorio)*
